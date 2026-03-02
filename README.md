@@ -12,7 +12,7 @@ Then it executes given commands and returns the final position.
 Started with the simple implementation of the algorithm as you can see in `Program.cs` file.
 Then structured the program to a company-grade API with `src` and `tests` folders, creating more separation of concerns and object-oriented implementation.
 
-# Errors
+## Errors
 ..are thrown in case:
  - initial position is off grid
  - any subsequent position is off grid*
