@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Robot.Api/Robot.Api.csproj" />
+    <Project Path="src/Robot.Application/Robot.Application.csproj" />
+    <Project Path="src/Robot.Domain/Robot.Domain.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Robot.Application.Tests/Robot.Application.Tests.csproj" />
+    <Project Path="tests/Robot.Domain.Tests/Robot.Domain.Tests.csproj" />
+  </Folder>
+</Solution>
