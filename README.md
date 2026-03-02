@@ -26,7 +26,8 @@ Keep in mind that this project is in:
 > 10.0.103
 ```
 ## Instructions
-In order to run the API:
+The project can either run locally or with Docker:
+### 1. In order to run the API:
 ```
 dotnet run --project src/Robot.Api
 ```
@@ -47,12 +48,13 @@ where xxxx is the port assigned when the server starts.
 
 Run the tests by:
 ```
-> Robot/tests/Robot.Application.Tests$ dotnet test
+> dotnet test tests/Robot.Application.Tests
 ```
-## Docker
+### 2. Docker
 The project is also dockerized for your convenience, so you can just run:
 ```
 > docker build -t robot-api .
 > docker run -d -p 5000:8080 --name robot-sim robot-api
 ```
-When the build takes place, the tests also run :)
+The API will then be available at http://localhost:5000.
+The Docker build process includes running the tests automatically :)
