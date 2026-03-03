@@ -17,13 +17,13 @@ public class MotionService
             throw new ArgumentException("Invalid starting direction. Use N, S, E, or W.");
         }
 
-        var robot = new Position(request.X, request.Y, initialDirection, request.GridWidth, request.GridHeight);
+        var robotPosition = new Position(request.X, request.Y, initialDirection, request.GridWidth, request.GridHeight);
 
         foreach (char c in request.Commands)
         {
             if (!char.IsDigit(c) && Enum.TryParse<Command>(c.ToString(), out var command) && Enum.IsDefined(command))
             {
-                robot.Execute(command);
+                robotPosition.Execute(command);
             }
             else
             {
@@ -31,6 +31,6 @@ public class MotionService
             }
         }
     
-        return new RobotResponse(robot.X, robot.Y, robot.Towards.ToString());
+        return new RobotResponse(robotPosition.X, robotPosition.Y, robotPosition.Towards.ToString());
     }
 }
