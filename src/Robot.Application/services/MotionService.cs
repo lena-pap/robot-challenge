@@ -27,7 +27,7 @@ public class MotionService
             }
             else
             {
-                throw new ArgumentException($"Unknown command character: {c}");
+                throw new ArgumentException($"Unknown command character: {c}. Use M, L or R.");
             }
         }
     
