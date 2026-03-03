@@ -1,11 +1,28 @@
 namespace Robot.Domain;
 
-public class Position(int x, int y, Direction towards, int width, int height)
+public class Position
 {
-    public int X { get; private set; } = x;
-    public int Y { get; private set; } = y;
+    public int X { get; private set; }
+    public int Y { get; private set; }
     
-    public Direction Towards { get; private set; } = towards;
+    public Direction Towards { get; private set; }
+    private readonly int _gridWidth;
+    private readonly int _gridHeight;
+
+    public Position(int x, int y, Direction towards, int width, int height)
+    {
+        _gridWidth = width;
+        _gridHeight = height;
+
+        if (IsOffGrid(x, y))
+        {
+            throw new ArgumentException("Initial position is off grid!");
+        }
+
+        X = x;
+        Y = y;
+        Towards = towards;
+    }
 
     public void Execute(Command command)
     {
@@ -48,6 +65,6 @@ public class Position(int x, int y, Direction towards, int width, int height)
 
     private bool IsOffGrid(int nx, int ny) 
     {
-        return nx < 0 || nx >= width || ny < 0 || ny >= height;
+        return nx < 0 || nx >= _gridWidth || ny < 0 || ny >= _gridHeight;
     }
 }
